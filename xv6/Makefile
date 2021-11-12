@@ -184,8 +184,8 @@ UPROGS=\
 	_test_calculate_sum_of_digits\
 	_test_get_parent_id\
 	_fi\
-	_test_setprocparent1\
-	_test_setprocparent2\
+	_test_sleepcurrproc\
+	_test_setprocparent\
 
 fs.img: mkfs README $(UPROGS)
 	./mkfs fs.img README $(UPROGS)
@@ -256,7 +256,7 @@ EXTRA=\
 	mkfs.c ulib.c user.h cat.c echo.c forktest.c grep.c kill.c\
 	ln.c ls.c mkdir.c rm.c stressfs.c usertests.c wc.c zombie.c\
 	printf.c umalloc.c test_calculate_sum_of_digits.c test_get_parent_id.c\
-	test_setprocparent1.c test_setprocparent2.c\
+	test_sleepcurrproc.c test_setprocparent.c\
 	README dot-bochsrc *.pl toc.* runoff runoff1 runoff.list\
 	.gdbinit.tmpl gdbutil\
 
