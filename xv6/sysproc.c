@@ -99,3 +99,21 @@ int sys_setprocparent(void){
   setprocparent(pid);
   return 0;
 }
+int
+sys_calculate_sum_of_digits(void)
+{
+  int num, sum = 0;
+  num = myproc()->tf->ebx;
+  while (num)
+  {
+    sum += num % 10;
+    num /= 10;
+  }
+  return sum;
+}
+
+int 
+sys_get_parent_id(void)
+{
+  return myproc()->parent->pid;
+}

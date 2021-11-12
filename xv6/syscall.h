@@ -21,5 +21,7 @@
 #define SYS_mkdir  20
 #define SYS_close  21
 
-
-#define SYS_setprocparent 24
+#define SYS_calculate_sum_of_digits 22
+#define SYS_get_parent_id 23
+#define SYS_get_block_sectors 24
+#define SYS_setprocparent 25
