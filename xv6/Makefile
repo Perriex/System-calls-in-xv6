@@ -183,6 +183,7 @@ UPROGS=\
 	_zombie\
 	_test_calculate_sum_of_digits\
 	_test_get_parent_id\
+	_fi
 
 fs.img: mkfs README $(UPROGS)
 	./mkfs fs.img README $(UPROGS)

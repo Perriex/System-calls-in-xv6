@@ -490,14 +490,13 @@ int readi(struct inode *ip, char *dst, uint off, uint n)
 
 //PAGEBREAK!
 // Get sector data from inode.
-// Caller must hold ip->lock.
 int getsectors(struct inode *ip, int max, uint *sectors)
 {
-  int start, step, end, n, blockno, *addr;
+  uint start, step, end, *addr, n = 0;
 
   if (ip->type == T_DEV)
   {
-    return;
+    return -1;
   }
 
   for (addr = ip->addrs; addr < ip->addrs + NDIRECT + 1; addr++)
@@ -513,6 +512,8 @@ int getsectors(struct inode *ip, int max, uint *sectors)
     {
       sectors[n] = start;
     }
+
+    return n;
   }
 
   return n;

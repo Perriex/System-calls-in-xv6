@@ -28,6 +28,8 @@ struct proc * getprocbypid(int _pid)
   for (p = ptable.proc; p < &ptable.proc[NPROC]; p++)
     if (p->pid == _pid)
       return p;
+
+  return 0;
 }
 
 void pinit(void)

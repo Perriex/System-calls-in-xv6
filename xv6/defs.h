@@ -33,7 +33,7 @@ void            fileinit(void);
 int             fileread(struct file*, char*, int n);
 int             filestat(struct file*, struct stat*);
 int             filewrite(struct file*, char*, int n);
-void            getfilesectors(struct file *f, int n, int *sectors);
+int             getfilesectors(struct file *f, int n, uint *sectors);
 
 // fs.c
 void            readsb(int dev, struct superblock *sb);
@@ -108,6 +108,7 @@ int             pipewrite(struct pipe*, char*, int);
 //PAGEBREAK: 16
 // proc.c
 struct proc*    getprocbypid(int);
+void            setprocparent(int pid);
 int             cpuid(void);
 void            exit(void);
 int             fork(void);

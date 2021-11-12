@@ -103,10 +103,10 @@ extern int sys_unlink(void);
 extern int sys_wait(void);
 extern int sys_write(void);
 extern int sys_uptime(void);
-extern void sys_setprocparent(void);
+extern int sys_setprocparent(void);
 extern int sys_calculate_sum_of_digits(void);
 extern int sys_get_parent_id(void);
-extern void sys_getfilesectors(void);
+extern int sys_getfilesectors(void);
 
 
 static int (*syscalls[])(void) = {
@@ -134,7 +134,7 @@ static int (*syscalls[])(void) = {
 [SYS_setprocparent] sys_setprocparent,
 [SYS_calculate_sum_of_digits] sys_calculate_sum_of_digits,
 [SYS_get_parent_id] sys_get_parent_id,
-[SYS_get_block_sectors] sys_getfilesectors,
+[SYS_getfilesectors] sys_getfilesectors,
 };
 
 void
