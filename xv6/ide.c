@@ -70,7 +70,7 @@ void ideinit(void)
   outb(0x1f6, 0xe0 | (0 << 4));
 }
 
-int getblocksectors(uint blockno, uint *start, uint *step, uint *end)
+void getblocksectors(uint blockno, uint *start, uint *step, uint *end)
 {
   int sector_per_block = BSIZE / SECTOR_SIZE;
   *start = blockno * sector_per_block;

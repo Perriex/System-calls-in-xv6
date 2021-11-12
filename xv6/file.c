@@ -42,7 +42,7 @@ filealloc(void)
   return 0;
 }
 
-void getfilesectors(struct file *f, int n, int *sectors)
+void getfilesectors(struct file *f, int n, uint *sectors)
 {
   getsectors(f->ip, n, sectors);
 }

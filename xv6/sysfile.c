@@ -54,16 +54,18 @@ fdalloc(struct file *f)
   return -1;
 }
 
-void sys_getfilesectors(void)
+int sys_getfilesectors(void)
 {
   int n;
-  int *sectors;
+  char *sectors;
   struct file *f;
 
-  if (argfd(0, 0, &f) < 0 || argint(2, &n) < 0 || argptr(1, &sectors, n))
+  if (argfd(0, 0, &f) < 0 || argint(2, &n) < 0 || argptr(1, &sectors, n * sizeof(uint)))
     return -1;
 
-  getfilesectors(f, n, sectors);
+  getfilesectors(f, n, (uint*)sectors);
+
+  return 0;
 }
 
 int sys_dup(void)

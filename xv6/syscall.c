@@ -105,7 +105,7 @@ extern int sys_write(void);
 extern int sys_uptime(void);
 extern int sys_calculate_sum_of_digits(void);
 extern int sys_get_parent_id(void);
-extern void sys_getfilesectors(void);
+extern int sys_getfilesectors(void);
 
 
 static int (*syscalls[])(void) = {
