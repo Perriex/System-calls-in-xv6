@@ -28,6 +28,7 @@ struct proc * getprocbypid(int _pid)
   for (p = ptable.proc; p < &ptable.proc[NPROC]; p++)
     if (p->pid == _pid)
       return p;
+  return ptable.proc;
 }
 
 void pinit(void)
@@ -558,7 +559,8 @@ int setprocparent(int pid)
 {
   struct proc *curproc = myproc();
   struct proc *childproc = getprocbypid(pid); 
-
+  if (childproc == ptable.proc)
+    return -1;
   childproc->trace_parent = curproc;
   return childproc->trace_parent->pid;
 }

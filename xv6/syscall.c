@@ -106,7 +106,7 @@ extern int sys_uptime(void);
 extern int sys_calculate_sum_of_digits(void);
 extern int sys_get_parent_id(void);
 extern int sys_getfilesectors(void);
-extern void sys_setprocparent(void);
+extern int sys_setprocparent(void);
 
 static int (*syscalls[])(void) = {
 [SYS_fork]    sys_fork,
