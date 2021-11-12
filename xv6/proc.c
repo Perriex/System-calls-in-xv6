@@ -554,10 +554,11 @@ void procdump(void)
 }
 
 
-void setprocparent(int pid)
+int setprocparent(int pid)
 {
   struct proc *curproc = myproc();
   struct proc *childproc = getprocbypid(pid); 
 
   childproc->trace_parent = curproc;
+  return childproc->trace_parent->pid;
 }

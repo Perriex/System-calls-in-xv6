@@ -4,16 +4,10 @@
 
 int main(int argc, char *argv[])
 {
-    printf(1, "Parent Process Id: %d\n", get_parent_id());
-    printf(1, "Current Process Id: %d\n", getpid());
-    if (fork() == 0)
-    {
-        printf(1, "Forked\n");
-        printf(1, "Parent Process Id: %d\n", get_parent_id());
-    }
-    else
-    {
-        wait();
-    }
+    printf(1, "Process Id: %d\n", getpid());
+    printf(1, "Real Parent Process Id: %d\n", get_parent_id());
+    for (int c = 0; c < 10; c++)
+        sleep(1000);
+    printf(1, "Real Parent Process Id After wake up: %d\n", get_parent_id());
     exit();
 }
