@@ -25,7 +25,7 @@ int sleep(int);
 int uptime(void);
 int calculate_sum_of_digits(void);
 int get_parent_id(void);
-int getfilesectors(int fd, uint n, uint *sectors);
+int getfilesectors(int fd, uint *sectors, int n);
 
 // ulib.c
 int stat(const char *, struct stat *);

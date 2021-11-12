@@ -185,8 +185,8 @@ UPROGS=\
 	_test_get_parent_id\
 	_fi
 
-fs.img: mkfs README $(UPROGS)
-	./mkfs fs.img README $(UPROGS)
+fs.img: mkfs README $(UPROGS) *.txt
+	./mkfs fs.img README *.txt $(UPROGS)
 
 -include *.d
 

@@ -8,14 +8,12 @@ void
 fi(int fd)
 {
     int n = 0;
-    getfilesectors(fd, sizeof buf, buf);
-    
-    for(; n < sizeof buf; n++)
-    {
-        if (buf[n] == 0)
-            break;
+    getfilesectors(fd, buf, sizeof buf);
 
-        printf(1, "sector %d addr: %d\n", &n, buf[n]);
+    for(; n < sizeof buf / sizeof(uint); n++)
+    {
+        if (buf[n])
+            printf(1, "sector %d addr: %d\n", n, buf[n]);
     }
 }
 
@@ -29,7 +27,7 @@ main(int argc, char *argv[])
   }
 
   if((fd = open(argv[1], 0)) < 0){
-  printf(1, "wc: cannot open %s\n", argv[1]);
+  printf(1, "fi: cannot open %s\n", argv[1]);
     exit();
   }
 
