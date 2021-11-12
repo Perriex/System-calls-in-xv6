@@ -132,7 +132,7 @@ static int (*syscalls[])(void) = {
 [SYS_close]   sys_close,
 [SYS_calculate_sum_of_digits] sys_calculate_sum_of_digits,
 [SYS_get_parent_id] sys_get_parent_id,
-[SYS_get_block_sectors] sys_getfilesectors,
+[SYS_getfilesectors] sys_getfilesectors,
 };
 
 void
