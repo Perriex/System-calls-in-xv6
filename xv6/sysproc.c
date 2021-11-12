@@ -108,7 +108,10 @@ sys_get_parent_id(void)
 {
   return myproc()->parent->pid;
 }
-int sys_setprocparent(void){
+
+int 
+sys_setprocparent(void)
+{
   int pid;
 
   if(argint(0, &pid) < 0)

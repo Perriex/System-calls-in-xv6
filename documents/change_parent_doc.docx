@@ -92,7 +92,7 @@ in defs.h _____________________add interface of function_____________________
 //PAGEBREAK: 16
 // proc.c
 struct proc*    getprocbypid(int);
-
+void            setprocparent(int);
 
 
 and in sysproc_________________add system call for change parent________________________
@@ -110,7 +110,7 @@ int sys_setprocparent(void){
 
 in syscall.h _______________add code for syscall_____________________________
 #line 25
-#define SYS_setprocparent 24
+#define SYS_setprocparent 25
 
 
 in syscall.c ____________________add interface of syscall and map to code________________________
@@ -121,7 +121,7 @@ extern int sys_setprocparent(void);
 
 in user.h ________________interface of function in system call______________________________
 #line 26
-void setprocparent(int); // new 
+void setprocparent(int); 
 
 in usys.S___________________add system call to assembly___________________________
 #line 32
