@@ -90,16 +90,6 @@ sys_uptime(void)
   return xticks;
 }
 
-int sys_setprocparent(void){
-  int pid;
-
-  if(argint(0, &pid) < 0)
-    return -1;
-  
-  setprocparent(pid);
-  return 0;
-}
-
 int
 sys_calculate_sum_of_digits(void)
 {
@@ -117,4 +107,13 @@ int
 sys_get_parent_id(void)
 {
   return myproc()->parent->pid;
+}
+int sys_setprocparent(void){
+  int pid;
+
+  if(argint(0, &pid) < 0)
+    return -1;
+  
+  setprocparent(pid);
+  return 0;
 }
