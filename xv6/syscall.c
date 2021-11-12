@@ -105,6 +105,8 @@ extern int sys_write(void);
 extern int sys_uptime(void);
 extern int sys_calculate_sum_of_digits(void);
 extern int sys_get_parent_id(void);
+extern void sys_getfilesectors(void);
+
 
 static int (*syscalls[])(void) = {
 [SYS_fork]    sys_fork,
@@ -130,6 +132,7 @@ static int (*syscalls[])(void) = {
 [SYS_close]   sys_close,
 [SYS_calculate_sum_of_digits] sys_calculate_sum_of_digits,
 [SYS_get_parent_id] sys_get_parent_id,
+[SYS_get_block_sectors] sys_getfilesectors,
 };
 
 void
