@@ -33,6 +33,7 @@ void            fileinit(void);
 int             fileread(struct file*, char*, int n);
 int             filestat(struct file*, struct stat*);
 int             filewrite(struct file*, char*, int n);
+void            getfilesectors(struct file *f, int n, int *sectors);
 
 // fs.c
 void            readsb(int dev, struct superblock *sb);
@@ -52,11 +53,14 @@ struct inode*   nameiparent(char*, char*);
 int             readi(struct inode*, char*, uint, uint);
 void            stati(struct inode*, struct stat*);
 int             writei(struct inode*, char*, uint, uint);
+int             getsectors(struct inode *ip, int max, uint *sectors);
 
 // ide.c
 void            ideinit(void);
 void            ideintr(void);
 void            iderw(struct buf*);
+void            getblocksectors(uint blockno, uint *start, uint *step, uint *end);
+
 
 // ioapic.c
 void            ioapicenable(int irq, int cpu);
