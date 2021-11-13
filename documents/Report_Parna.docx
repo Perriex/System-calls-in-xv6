@@ -1,0 +1,87 @@
+﻿فراخوانی های سیستمی کتابخانه َULIB
+
+ULIB = ulib.o usys.o printf.o umalloc.o
+
+
+ در فایل پرینتف
+write  
+برای نوشتن در فایل مشخص شده استفاده می‌شود
+
+در فایل ملوک
+تابع 
+sbrk
+
+Fetch the nth 32-bit system call argument.
+
+// Size of process memory (bytes)
+// Grow current process's memory by n bytes.
+// Return 0 on success, -1 on failure.
+
+در فایل یولیب
+تابع 
+read
+
+خواندن از فایل مشخص شده
+
+open
+برای باز کردن و یا ساختن قایل استفاده می‌شود
+
+close
+// Close file f. (Decrement ref count, close when reaches 0.)
+
+ در فایل syscall
+
+در این فایل اسمبلی ابتدا کامپایلر 
+//
+را حذف کرده و تمام خط ها را به هم متصل میکند
+سپس با علامت 
+##
+توکن های سمت راست و چپ را به هم متصل میکند
+sys_fork
+سپس ایان دستور به وجود می‌آید
+.globl fork; fork: movl $SYS_fork, %eax; int $T_SYSCALL; ret
+
+به این معنا که شناسه 
+fork
+را پابلیک کن
+یک لیبل 
+fork
+که نشانگر تابع است تعریف کن
+در این تابع
+یک – مقدار عددی 
+SYS_fork
+را به رجیستر 
+eax
+اساین کن
+دو یک وقفه با کد 
+T_SYSCALL
+ایجاد کن
+سپس از این تابع ریترن کن
+
+
+
+سؤال دوم
+به مجموعه دسترسی های کاربر به هسته 
+system api
+میگوند که شامل 
+system call
+psedu-files
+libc functions
+یا به طور کلی 
+glic library
+
+POSIX
+ defines both the system- and user-level application programming interfaces (API), along with command line shells and utility interfaces, for software compatibility (portability) with variants of Unix and other operating systems.
+
+n addition to the main system call table, Linux exports
+many additional APIs through pseudo-file systems, such as
+
+/proc, /dev, and /sys. These are called pseudo-file sys-
+tems because they are not backed by disk,
+
+these pseudo-files are used
+
+on the command line or in scripts by an administrator, a few
+
+are routinely used by applications. 
+

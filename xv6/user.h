@@ -27,6 +27,7 @@ int calculate_sum_of_digits(void);
 int get_parent_id(void);
 int getfilesectors(int fd, uint *sectors, int n);
 int setprocparent(int); 
+
 // ulib.c
 int stat(const char *, struct stat *);
 char *strcpy(char *, const char *);
