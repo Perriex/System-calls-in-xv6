@@ -490,10 +490,9 @@ int readi(struct inode *ip, char *dst, uint off, uint n)
 
 //PAGEBREAK!
 // Get sector data from inode.
-int getsectors(struct inode *ip, int max, uint *sectors)
+int getsectors(struct inode *ip, uint *sectors, int max)
 {
   uint start, step, end, *addr, n = 0;
-
   if (ip->type == T_DEV)
   {
     return -1;
@@ -512,8 +511,6 @@ int getsectors(struct inode *ip, int max, uint *sectors)
     {
       sectors[n] = start;
     }
-
-    return n;
   }
 
   return n;

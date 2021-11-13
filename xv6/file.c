@@ -42,9 +42,9 @@ filealloc(void)
   return 0;
 }
 
-int getfilesectors(struct file *f, int n, uint *sectors)
+int getfilesectors(struct file *f, uint *sectors, int n)
 {
-  return getsectors(f->ip, n, sectors);
+  return getsectors(f->ip, sectors, n);
 }
 
 // Increment ref count for file f.

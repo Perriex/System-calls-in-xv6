@@ -187,8 +187,8 @@ UPROGS=\
 	_test_sleepcurrproc\
 	_test_setprocparent\
 
-fs.img: mkfs README $(UPROGS)
-	./mkfs fs.img README $(UPROGS)
+fs.img: mkfs README $(UPROGS) *.txt
+	./mkfs fs.img README *.txt $(UPROGS)
 
 -include *.d
 

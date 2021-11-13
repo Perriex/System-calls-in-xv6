@@ -62,9 +62,8 @@ int sys_getfilesectors(void)
 
   if (argfd(0, 0, &f) < 0 || argint(2, &n) < 0 || argptr(1, &sectors, n * sizeof(uint)))
     return -1;
-
-  getfilesectors(f, n, (uint*)sectors);
-
+  
+  getfilesectors(f, (uint*)sectors, n);
   return 0;
 }
 
