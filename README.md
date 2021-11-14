@@ -1,1 +1,5 @@
-# Q 1-2 & Parent change
+#OS Lab 2
+
+Parna Asadi
+Morteza Bahjat
+Omid Panakari
